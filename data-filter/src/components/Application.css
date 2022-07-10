@@ -128,6 +128,14 @@ input:not(:focus):valid ~ .search-label {
   text-align: center;
 }
 
+.search-length {
+  color: green;
+  margin-top: 10px;
+  font-weight: 600px;
+  float: right;
+  font-size: 18px;
+}
+
 .data-div {
   display: flex;
   flex-direction: row;
@@ -173,4 +181,17 @@ input:not(:focus):valid ~ .search-label {
 
 .data-link {
   margin-top: 5px;
+}
+
+.data-link-a {
+  word-break: break-all;
+}
+
+.go-to-input {
+  color: #002564;
+  padding: 10px;
+  font-size: 18px;
+  position: fixed;
+  top: 9%;
+  right: 10%;
 }

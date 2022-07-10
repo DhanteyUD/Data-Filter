@@ -4,6 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Spinner from './Spinner';
+import {
+  nameHandleSearch,
+  dateHandleSearch,
+  yearHandleSearch,
+  siteHandleSearch,
+  detailHandleSearch,
+} from './ButtonFunctions.model';
 import './Application.css';
 
 const APPLICATION_QUERY = `
@@ -27,8 +34,33 @@ query {
 function Application() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [launches, setLaunches] = useState([]);
+  const [allData, setAllData] = useState([]);
+  const [dataLength, setDataLength] = useState('');
+  const [header, setHeader] = useState('');
+  const [filteredData, setFilteredData] = useState(allData);
+
   const url = 'https://api.spacex.land/graphql/';
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value;
+    const filteredData = allData
+      .filter((item) => {
+        setHeader('All');
+        return item.mission_name
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      })
+      .sort((a, b) => {
+        return a.launch_date_local > b.launch_date_local ? -1 : 1;
+      })
+      .reverse();
+    setFilteredData(filteredData);
+    setDataLength(
+      filteredData.length > 1
+        ? `${filteredData.length} results found`
+        : `${filteredData.length} result found`
+    );
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +70,8 @@ function Application() {
           query: APPLICATION_QUERY,
         });
         const data = result.data.data.launchesPast;
-        setLaunches(data);
+        setAllData(data);
+        setFilteredData(data);
         setError(error);
         console.log(data);
       } catch (error) {
@@ -53,19 +86,126 @@ function Application() {
 
   return (
     <>
+      <button className="go-to-input">Search</button>
       <div className="container">
         <div className="search-bar">
           <FontAwesomeIcon className="search-icon" icon={faSearch} />
-          <input className="search-input" type="text" required />
-          <span className="search-label">Search</span>
+          <input
+            className="search-input"
+            type="search"
+            name="search-data"
+            id="search-data"
+            onChange={
+              header === 'Name'
+                ? (e) =>
+                    nameHandleSearch(
+                      e,
+                      allData,
+                      setHeader,
+                      setFilteredData,
+                      setDataLength
+                    )
+                : header === 'Date'
+                ? (e) =>
+                    dateHandleSearch(
+                      e,
+                      allData,
+                      setHeader,
+                      setFilteredData,
+                      setDataLength
+                    )
+                : header === 'Year'
+                ? (e) =>
+                    yearHandleSearch(
+                      e,
+                      allData,
+                      setHeader,
+                      setFilteredData,
+                      setDataLength
+                    )
+                : header === 'Site'
+                ? (e) =>
+                    siteHandleSearch(
+                      e,
+                      allData,
+                      setHeader,
+                      setFilteredData,
+                      setDataLength
+                    )
+                : (e) => handleSearch(e)
+            }
+            required
+          />
+          <label htmlFor="search-data" className="search-label">
+            Search
+          </label>
         </div>
         <p className="filter-by">Filter by:</p>
         <div className="filter-btns">
-          <button className="filter-btn">Name</button>
-          <button className="filter-btn">Date</button>
-          <button className="filter-btn">Year</button>
-          <button className="filter-btn">Site</button>
-          <button className="filter-btn ">Details</button>
+          <button
+            className="filter-btn"
+            onClick={(e) =>
+              nameHandleSearch(
+                e,
+                allData,
+                setHeader,
+                setFilteredData,
+                setDataLength
+              )
+            }
+          >
+            Name
+          </button>
+          <button
+            className="filter-btn"
+            onClick={(e) =>
+              dateHandleSearch(
+                e,
+                allData,
+                setHeader,
+                setFilteredData,
+                setDataLength
+              )
+            }
+          >
+            Date
+          </button>
+          <button
+            className="filter-btn"
+            onClick={(e) =>
+              yearHandleSearch(
+                e,
+                allData,
+                setHeader,
+                setFilteredData,
+                setDataLength
+              )
+            }
+          >
+            Year
+          </button>
+          <button
+            className="filter-btn"
+            onClick={(e) =>
+              siteHandleSearch(
+                e,
+                allData,
+                setHeader,
+                setFilteredData,
+                setDataLength
+              )
+            }
+          >
+            Site
+          </button>
+          <button
+            className="filter-btn"
+            onClick={() =>
+              detailHandleSearch(allData, setHeader, setFilteredData)
+            }
+          >
+            A-Z
+          </button>
         </div>
         {error ? (
           <div className="error-msg">
@@ -75,8 +215,9 @@ function Application() {
           <Spinner />
         ) : (
           <div className="body">
-            <h1>Date</h1>
-            {launches.map((launch) => (
+            <h1>{header}</h1>
+            <h2 className="search-length">{dataLength}</h2>
+            {filteredData.map((launch) => (
               <div className="data-div" key={launch.id}>
                 <div className="data-id">{launch.id}</div>
                 <div className="data">
@@ -90,7 +231,7 @@ function Application() {
                   <p className="data-details">{launch.details}</p>
                   <p className="data-link">
                     Link -{' '}
-                    <a href={launch.links.wikipedia}>
+                    <a className="data-link-a" href={launch.links.wikipedia}>
                       {launch.links.wikipedia}
                     </a>
                   </p>

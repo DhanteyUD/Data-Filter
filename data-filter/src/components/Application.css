@@ -1,0 +1,176 @@
+/** @format */
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 6px solid #002564;
+  background-color: #fff;
+  width: 50%;
+  height: 100%;
+  margin-top: 10px;
+  margin-left: 25%;
+  margin-bottom: 10px;
+  padding: 50px 30px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.search-label {
+  position: absolute;
+  pointer-events: none;
+  left: 55px;
+  color: #999;
+  top: 13px;
+  transition: all 0.3s ease;
+  font-size: 25px;
+}
+
+.search-input {
+  border: 2px solid #002564;
+  width: 100%;
+  height: 60px;
+  font-size: 25px;
+  padding: 0 20px 0 52px;
+  color: #444;
+  background-color: #fff;
+}
+.search-input:focus {
+  background-color: #fff;
+}
+
+input:focus ~ .search-label,
+input:not(:focus):valid ~ .search-label {
+  top: -25px;
+  left: 50px;
+  opacity: 1;
+  transition: 0.3s;
+  padding: 5px;
+  color: #444;
+  background-color: #fff;
+}
+
+.search-icon {
+  position: absolute;
+  color: #999;
+  font-size: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.filter-by {
+  font-weight: 600;
+  color: #002564;
+}
+
+.filter-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+}
+
+.filter-btn {
+  width: 18%;
+  font-size: 16px;
+  height: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  border-radius: 0;
+  border: 1px solid #002564;
+  color: #002564;
+  background-color: #fff;
+  font-family: 'Outfit', sans-serif;
+}
+.filter-btn:focus {
+  background-color: #002564;
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+  font-weight: 600;
+  border-radius: 0;
+}
+
+.error-msg {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  color: red;
+}
+
+.error-icon {
+  font-size: 50px;
+  margin-left: 10px;
+  color: red;
+}
+
+.body {
+  margin-top: 20px;
+}
+
+.body > h1 {
+  background-color: #002564;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  font-size: 20px;
+  width: 18%;
+  text-align: center;
+}
+
+.data-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.data-id {
+  border: 2px solid #002564;
+  color: #002564;
+  padding: 45px;
+  font-weight: 600;
+}
+
+.data {
+  padding: 15px;
+  font-weight: 600;
+  width: 79.4%;
+  border: 2px solid #002564;
+  color: #002564;
+}
+
+.data-name {
+  margin: 0;
+  font-size: 20px;
+}
+
+.data-date {
+  color: #002564;
+  float: right;
+  font-size: 16px;
+}
+
+.data-year {
+  color: green;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.data-details {
+  text-align: justify;
+}
+
+.data-link {
+  margin-top: 5px;
+}

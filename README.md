@@ -16,7 +16,7 @@ https://api.spacex.land/graphql/
 ### 3. Data is filtered by:
 
 - [x] Searching data via `search box`
-- [x] Clicking any of the filter buttons 
+- [x] Clicking any of the filter buttons and searching data via `search box` based on that header
   
   ### How it works:
   

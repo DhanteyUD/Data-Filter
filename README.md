@@ -64,7 +64,7 @@ query {
 ## Extra
 
 - [x] on search, the length of data is returned
-- [x] on search, the component being filtered is displayed above the `id` field
+- [x] on search, the `data` being filtered is displayed above the `id` field
 - [x] the `Go to Search` button was added to quickly take user to the `search box`
 - [x] app deployed to `Netlify` 
   
@@ -80,5 +80,7 @@ query {
   
   I believe this app can be improved by persisting state for each filter in order to preserve the state on window refresh. 
   
+  # Thank you,
   
+  <a href="https://github.com/DhanteyUD">Clinton Otse</a>
 

@@ -86,8 +86,10 @@ function Application() {
 
   return (
     <>
-      <button className="go-to-input">Search</button>
-      <div className="container">
+      <a href="#search" className="go-to-input">
+        Go to Search
+      </a>
+      <div id="search" className="container">
         <div className="search-bar">
           <FontAwesomeIcon className="search-icon" icon={faSearch} />
           <input

@@ -189,9 +189,23 @@ input:not(:focus):valid ~ .search-label {
 
 .go-to-input {
   color: #002564;
-  padding: 10px;
+  border: 2px solid #002564;
+  background-color: #fff;
+  padding: 13px 10px 10px 10px;
   font-size: 18px;
   position: fixed;
-  top: 9%;
-  right: 10%;
+  top: 8.8%;
+  width: 10%;
+  height: 55px;
+  cursor: pointer;
+  right: 7%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.go-to-input:hover {
+  color: #fff;
+  transition: 0.3s;
+  background-color: #002564;
 }

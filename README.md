@@ -82,5 +82,5 @@ query {
   
   # Thank you!
   
-  ## <a href="https://github.com/DhanteyUD">Clinton Otse</a>
+  ## <a href="https://github.com/DhanteyUD">CLINTON OTSE</a>
 

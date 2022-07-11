@@ -78,9 +78,11 @@ query {
 
 ## How can this App can be Improved?
   
-  I believe this app can be improved by persisting state for each filter in order to preserve the state on window refresh. 
+  1. I believe this app can be improved by persisting state for each filter in order to preserve the state on window refresh. 
   
-  # Thank you!
+  2. By implementating pagination to limit displayed data to fit screen thus improving user interaction with app.
+  
+  ## Thank you!
   
   ## <a href="https://github.com/DhanteyUD">CLINTON OTSE</a>
 

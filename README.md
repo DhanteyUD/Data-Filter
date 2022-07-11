@@ -18,9 +18,9 @@ https://api.spacex.land/graphql/
 - [x] Searching data via `search box`
 - [x] Clicking any of the filter buttons and searching data via `search box` based on that header
   
-  ### How it works:
-  
-  Each filter button has an `onClick` function which updates the data state. In order to call this function `onChange` when a user enters a search     word, a header is being passed and used to check each `handleChange` functions for that header. If the header matches, that `onClick` function is then     called during `onChange` thus filtering data by that selection.
+>  ### How it works:
+>  
+>  Each filter button has an `onClick` function which updates the data state. In order to call this function `onChange` when a user enters a search            word, a header is being passed and used to check each `handleChange` functions for that header. If the header matches, that `onClick` function is then     called during `onChange` thus filtering data by that selection.
 
 ---
 ## App functions and Implementations

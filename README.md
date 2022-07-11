@@ -80,7 +80,7 @@ query {
   
   I believe this app can be improved by persisting state for each filter in order to preserve the state on window refresh. 
   
-  # Thank you,
+  # Thank you!
   
-  <a href="https://github.com/DhanteyUD">Clinton Otse</a>
+  ## <a href="https://github.com/DhanteyUD">Clinton Otse</a>
 

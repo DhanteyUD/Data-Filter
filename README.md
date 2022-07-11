@@ -35,7 +35,7 @@ https://api.spacex.land/graphql/
 
 > The loading state was handled with react `useState` hook. Initially set to false, the loading state is updated to true when the `GraphQL` API is being called
 
-https://user-images.githubusercontent.com/85023604/178226812-80bcf3f4-f319-4a73-9bb0-d0b2c5eb5f25.mov
+https://user-images.githubusercontent.com/85023604/178287141-753c6eab-d7ff-4085-873a-7e97ea642eab.mov
 
 ## 3. Data
 

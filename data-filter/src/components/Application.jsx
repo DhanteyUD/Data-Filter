@@ -11,6 +11,7 @@ import {
   siteHandleSearch,
   detailHandleSearch,
 } from './ButtonFunctions.model';
+import Theme from './Theme';
 import './Application.css';
 
 const APPLICATION_QUERY = `
@@ -86,6 +87,7 @@ function Application() {
 
   return (
     <>
+      <Theme />
       <a href="#search" className="go-to-input">
         Go to Search
       </a>

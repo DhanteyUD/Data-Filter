@@ -1,0 +1,145 @@
+/** @format */
+
+.text-light {
+  color: #000;
+  text-align: center;
+  margin-top: 45px;
+}
+
+.text-night {
+  color: #fff;
+  text-align: center;
+  margin-top: 45px;
+}
+
+.switch {
+  top: 30%;
+  right: 10%;
+  position: fixed;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196f3;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.switch-input:checked + .slider {
+  background-color: rgb(101, 98, 98);
+}
+
+.switch-input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.switch-input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.sun {
+  font-weight: 600;
+  position: absolute;
+  top: -7.5px;
+  right: 70.8px;
+  font-size: 15px;
+}
+.sun-moon {
+  color: rgba(128, 128, 128, 0.407);
+  position: absolute;
+  top: -7.5px;
+  right: -46px;
+  font-size: 15px;
+}
+
+.moon {
+  color: #fff;
+  position: absolute;
+  top: -7.5px;
+  right: -46px;
+  font-size: 15px;
+}
+.moon-sun {
+  color: rgba(128, 128, 128, 0.407);
+  position: absolute;
+  top: -7.5px;
+  right: 70.8px;
+  font-size: 15px;
+}
+
+.half-moon {
+  top: 5px;
+  right: 12px;
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(101, 98, 98);
+  cursor: pointer;
+}
+
+.smiley {
+  top: 90%;
+  right: 4%;
+  position: fixed;
+  font-size: 40px;
+  color: #002564;
+  font-weight: 600;
+}
+
+.smiley-dark {
+  top: 90%;
+  right: 4%;
+  position: fixed;
+  font-size: 40px;
+  color: green;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 900px) {
+  .switch {
+    display: none;
+  }
+  .smiley {
+    display: none;
+  }
+  .smiley-dark {
+    display: none;
+  }
+}

@@ -203,7 +203,7 @@ input:not(:focus):valid ~ .search-label {
   font-size: 18px;
   position: fixed;
   top: 8.8%;
-  width: 10%;
+  width: 150px;
   height: 55px;
   cursor: pointer;
   right: 7%;
@@ -216,4 +216,26 @@ input:not(:focus):valid ~ .search-label {
   color: #fff;
   transition: 0.3s;
   background-color: #002564;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+  }
+  .search-bar {
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+  }
+  .go-to-input {
+    top: 9.4%;
+    right: 3%;
+  }
 }

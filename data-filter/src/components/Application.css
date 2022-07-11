@@ -131,7 +131,7 @@ input:not(:focus):valid ~ .search-label {
 .search-length {
   color: green;
   margin-top: 10px;
-  font-weight: 600px;
+  font-weight: 600;
   float: right;
   font-size: 18px;
 }
@@ -146,16 +146,24 @@ input:not(:focus):valid ~ .search-label {
 .data-id {
   border: 2px solid #002564;
   color: #002564;
-  padding: 45px;
+  padding: 41px;
+  font-size: 20px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .data {
+  cursor: pointer;
   padding: 15px;
   font-weight: 600;
   width: 79.4%;
   border: 2px solid #002564;
   color: #002564;
+  transition: 0.3s;
+}
+.data:hover {
+  transition: 0.3s;
+  background-color: rgba(241, 240, 240, 0.574);
 }
 
 .data-name {

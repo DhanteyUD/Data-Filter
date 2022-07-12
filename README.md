@@ -1,9 +1,11 @@
 # Data-Filter
-A simple react app that filters data with a specific filter component and also can be searched through with a search box.
+A simple react app that filters data with a specific filter component and also can be searched through with a `search box` or `#tag`.
 
-`cd data-filter`
+1. `cd data-filter`
 
-Run `npm start` to start app
+2. Run `npm install` to install dependencies
+
+3. Run `npm start` to start app
 
 ## Click on this <a href="https://df-clinton-otse.netlify.app/">Link<a> to demo app
 
@@ -18,11 +20,15 @@ https://api.spacex.land/graphql/
 ### 3. Data is filtered by:
 
 - [x] Searching data via `search box`
-- [x] Clicking any of the filter buttons and searching data via `search box` based on that header
+- [x] Clicking any of the filter buttons and searching data via `search box` filters data based on that header
+- [x] Clicking any of the `#tags` for a quick filter
   
->  ### How it works:
->  
->  Each filter button has an `onClick` function which updates the data state. In order to call this function `onChange` when a user enters a search            word, a header is being passed and used to check each `handleChange` functions for that header. If the header matches, that `onClick` function is then     called during `onChange` thus filtering data by that selection.
+  ### How it works:
+ 
+  Each filter button has an `onClick` function which updates the data state. In order to call this function `onChange` when a user enters a search            word, a header is being passed and used to check each `handleChange` functions for that header. If the header matches, that `onClick` function is then      called during `onChange` thus filtering data by that selection.
+ 
+  Clicking any of the `#tags` simple sends the data header through an `onChange` function to the `handleHashChange` function where the data is checked for    a match and all data matching that header is returned.
+  
 
 ---
 ## App functions and Implementations
@@ -35,13 +41,13 @@ https://api.spacex.land/graphql/
 
 ## 2. Loading State
 
-> The loading state was handled with react `useState` hook. Initially set to false, the loading state is updated to true when the `GraphQL` API is being called
+> The loading state was handled with react `useState` hook. Initially set to false, the loading state is updated to true when the `GraphQL API` is being called
 
-https://user-images.githubusercontent.com/85023604/178287141-753c6eab-d7ff-4085-873a-7e97ea642eab.mov
+https://user-images.githubusercontent.com/85023604/178592576-f9c23b92-eb06-4b14-baf8-dd45c7a8c1a8.mov 
 
 ## 3. Data
 
-using the below query, a limit of `30` was applied to get the needed data, which is then used to populate the app
+using the below query, a limit of `30` was applied to get the needed data, which is used to populate the app
 
 ```js
 query {
@@ -60,8 +66,7 @@ query {
   }
 }
 ```
-  
-![Screen Shot 2022-07-11 at 9 44 02 AM](https://user-images.githubusercontent.com/85023604/178227208-f4e05593-e21a-4e17-847b-57fc344f97fc.png)
+![Screen Shot 2022-07-12 at 9 54 05 PM](https://user-images.githubusercontent.com/85023604/178593423-d04f2db1-6546-4fea-8f03-d1ddcc6c0458.png)
 
 ## Extra
 

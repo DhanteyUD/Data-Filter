@@ -6,12 +6,14 @@ export const nameHandleSearch = (
   allData,
   setHeader,
   setFilteredData,
-  setDataLength
+  setDataLength,
+  setHash
 ) => {
   const searchTerm = e.target.value;
   const filteredData = allData
     .filter((item) => {
       setHeader('Name');
+      setHash('mission_name');
       return item.mission_name.toLowerCase().includes(searchTerm.toLowerCase());
     })
     .sort((a, b) => {
@@ -32,12 +34,14 @@ export const dateHandleSearch = (
   allData,
   setHeader,
   setFilteredData,
-  setDataLength
+  setDataLength,
+  setHash
 ) => {
   const searchTerm = e.target.value;
   const filteredData = allData
     .filter((item) => {
       setHeader('Date');
+      setHash('launch_date_local');
       return new Date(item.launch_date_local)
         .toDateString()
         .toLowerCase()
@@ -61,12 +65,14 @@ export const yearHandleSearch = (
   allData,
   setHeader,
   setFilteredData,
-  setDataLength
+  setDataLength,
+  setHash
 ) => {
   const searchTerm = e.target.value;
   const filteredData = allData
     .filter((item) => {
       setHeader('Year');
+      setHash('launch_year');
       return item.launch_year.includes(searchTerm);
     })
     .sort((a, b) => {
@@ -87,12 +93,14 @@ export const siteHandleSearch = (
   allData,
   setHeader,
   setFilteredData,
-  setDataLength
+  setDataLength,
+  setHash
 ) => {
   const searchTerm = e.target.value;
   const filteredData = allData
     .filter((item) => {
       setHeader('Site');
+      setHash('launch_site');
       return item.launch_site.site_name
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
@@ -110,7 +118,12 @@ export const siteHandleSearch = (
 };
 
 // Detail filter function
-export const detailHandleSearch = (allData, setHeader, setFilteredData) => {
+export const detailHandleSearch = (
+  allData,
+  setHeader,
+  setFilteredData,
+  setHash
+) => {
   const filteredData = allData
     .sort((a, b) => {
       return a.mission_name > b.mission_name ? -1 : 1;
@@ -118,4 +131,5 @@ export const detailHandleSearch = (allData, setHeader, setFilteredData) => {
     .reverse();
   setFilteredData(filteredData);
   setHeader('A-Z');
+  setHash('mission_name');
 };

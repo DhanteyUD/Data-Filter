@@ -19,7 +19,7 @@ function Theme() {
       {backgroundColor === '#d9d9d9' ? (
         <span className="smiley">Yaay! 🌝</span>
       ) : (
-        <span className="smiley-dark">Oops! 🌚</span>
+        <span className="smiley-dark">Phew! 🌚</span>
       )}
 
       {backgroundColor === '#d9d9d9' ? (

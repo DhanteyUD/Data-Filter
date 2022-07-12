@@ -39,6 +39,7 @@ function Application() {
   const [dataLength, setDataLength] = useState('');
   const [header, setHeader] = useState('');
   const [filteredData, setFilteredData] = useState(allData);
+  const [hash, setHash] = useState(null);
 
   const url = 'https://api.spacex.land/graphql/';
 
@@ -46,10 +47,36 @@ function Application() {
     const searchTerm = e.target.value;
     const filteredData = allData
       .filter((item) => {
-        setHeader('All');
+        setHeader('Header');
         return item.mission_name
           .toLowerCase()
           .includes(searchTerm.toLowerCase());
+      })
+      .sort((a, b) => {
+        return a.launch_date_local > b.launch_date_local ? -1 : 1;
+      })
+      .reverse();
+    setFilteredData(filteredData);
+    setDataLength(
+      filteredData.length > 1
+        ? `${filteredData.length} results found`
+        : `${filteredData.length} result found`
+    );
+  };
+
+  const handleHashSearch = (item, hash) => {
+    const searchTerm = item.toLowerCase();
+    const filteredData = allData
+      .filter((data) => {
+        setHeader(item);
+        return hash === 'launch_site'
+          ? data[hash].site_name.toLowerCase().includes(searchTerm)
+          : hash === 'launch_date_local'
+          ? new Date(data.launch_date_local)
+              .toDateString()
+              .toLowerCase()
+              .includes(searchTerm)
+          : data[hash].toLowerCase().includes(searchTerm);
       })
       .sort((a, b) => {
         return a.launch_date_local > b.launch_date_local ? -1 : 1;
@@ -101,43 +128,14 @@ function Application() {
             id="search-data"
             onChange={
               header === 'Name'
-                ? (e) =>
-                    nameHandleSearch(
-                      e,
-                      allData,
-                      setHeader,
-                      setFilteredData,
-                      setDataLength
-                    )
+                ? (e) => nameHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
                 : header === 'Date'
-                ? (e) =>
-                    dateHandleSearch(
-                      e,
-                      allData,
-                      setHeader,
-                      setFilteredData,
-                      setDataLength
-                    )
+                ? (e) => dateHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
                 : header === 'Year'
-                ? (e) =>
-                    yearHandleSearch(
-                      e,
-                      allData,
-                      setHeader,
-                      setFilteredData,
-                      setDataLength
-                    )
+                ? (e) => yearHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
                 : header === 'Site'
-                ? (e) =>
-                    siteHandleSearch(
-                      e,
-                      allData,
-                      setHeader,
-                      setFilteredData,
-                      setDataLength
-                    )
-                : (e) => handleSearch(e)
-            }
+                ? (e) => siteHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
+                : (e) => handleSearch(e)}
             required
           />
           <label htmlFor="search-data" className="search-label">
@@ -148,56 +146,28 @@ function Application() {
         <div className="filter-btns">
           <button
             className="filter-btn"
-            onClick={(e) =>
-              nameHandleSearch(
-                e,
-                allData,
-                setHeader,
-                setFilteredData,
-                setDataLength
-              )
+            onClick={(e) => nameHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
             }
           >
             Name
           </button>
           <button
             className="filter-btn"
-            onClick={(e) =>
-              dateHandleSearch(
-                e,
-                allData,
-                setHeader,
-                setFilteredData,
-                setDataLength
-              )
+            onClick={(e) => dateHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
             }
           >
             Date
           </button>
           <button
             className="filter-btn"
-            onClick={(e) =>
-              yearHandleSearch(
-                e,
-                allData,
-                setHeader,
-                setFilteredData,
-                setDataLength
-              )
+            onClick={(e) => yearHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
             }
           >
             Year
           </button>
           <button
             className="filter-btn"
-            onClick={(e) =>
-              siteHandleSearch(
-                e,
-                allData,
-                setHeader,
-                setFilteredData,
-                setDataLength
-              )
+            onClick={(e) => siteHandleSearch(e,allData,setHeader,setFilteredData,setDataLength,setHash)
             }
           >
             Site
@@ -205,11 +175,36 @@ function Application() {
           <button
             className="filter-btn"
             onClick={() =>
-              detailHandleSearch(allData, setHeader, setFilteredData)
+              detailHandleSearch(allData, setHeader, setFilteredData, setHash)
             }
           >
             A-Z
           </button>
+        </div>
+        <div className="filtered-list-div">
+          {hash &&
+            [
+              ...new Map(
+                allData.map((item) =>
+                  hash === 'launch_site'
+                    ? [item.launch_site.site_name, item.launch_site.site_name]
+                    : hash === 'launch_date_local'
+                    ? [
+                        item['launch_date_local'],
+                        new Date(item.launch_date_local).toDateString(),
+                      ]
+                    : [item[hash], item[hash]]
+                )
+              ).values(),
+            ].map((item, index) => (
+              <button
+                onClick={() => handleHashSearch(item, hash)}
+                className="filtered-list"
+                key={index}
+              >
+                #{item}
+              </button>
+            ))}
         </div>
         {error ? (
           <div className="error-msg">

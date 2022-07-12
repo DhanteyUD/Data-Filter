@@ -70,24 +70,24 @@ query {
 
 ## Extra
 
-- [x] on search, the length of data is returned
-- [x] on search, the `data` being filtered is displayed above the `id` field
-- [x] the `Go to Search` button was added to quickly take user to the `search box`
-- [x] app deployed to `Netlify` 
+- [x] On search, the length of filtered data is returned
+- [x] On search, the data being filtered is displayed above the `id` field
+- [x] The `Go to Search` button quickly take user to the `search box` 
+- [x] App deployed to `Netlify` 
   
   > https://df-clinton-otse.netlify.app/
   
   
-- [x] Night/Day mode implemented 
-- [x] fully mobile responsive
-
-![Screen Shot 2022-07-11 at 2 28 52 AM](https://user-images.githubusercontent.com/85023604/178210385-7d8baa37-2b67-4ed8-86b8-76bc7899da5e.png)
+- [x] Night/Day mode 
+- [x] Mobile responsive
+  
+![Screen Shot 2022-07-12 at 10 00 26 PM](https://user-images.githubusercontent.com/85023604/178594478-8f3e3ead-e174-41a0-b34a-71b47d332bf5.png)
 
 ## How can this App can be Improved?
   
   1. By persisting state for each filter in order to preserve the state on window refresh. 
   
-  2. By implementing pagination to limit displayed data to fit screen thus improving user interaction with app.
+  2. By implementing pagination to limit displayed data to fit screen viewers height thus improving user interaction with app.
   
   ## Thank you!
   

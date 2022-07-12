@@ -1,5 +1,7 @@
 # Data-Filter
-A simple react app that filters data by their types or status of data with a specific filter component and also can be searched through with a search box.
+A simple react app that filters data with a specific filter component and also can be searched through with a search box.
+
+`cd data-filter`
 
 Run `npm start` to start app
 
@@ -18,9 +20,9 @@ https://api.spacex.land/graphql/
 - [x] Searching data via `search box`
 - [x] Clicking any of the filter buttons and searching data via `search box` based on that header
   
-  ### How it works:
-  
-  Each filter button has an `onClick` function which updates the data state. In order to call this function `onChange` when a user enters a search     word, a header is being passed and used to check each `handleChange` functions for that header. If the header matches, that `onClick` function is then     called during `onChange` thus filtering data by that selection.
+>  ### How it works:
+>  
+>  Each filter button has an `onClick` function which updates the data state. In order to call this function `onChange` when a user enters a search            word, a header is being passed and used to check each `handleChange` functions for that header. If the header matches, that `onClick` function is then     called during `onChange` thus filtering data by that selection.
 
 ---
 ## App functions and Implementations
@@ -78,9 +80,11 @@ query {
 
 ## How can this App can be Improved?
   
-  I believe this app can be improved by persisting state for each filter in order to preserve the state on window refresh. 
+  1. By persisting state for each filter in order to preserve the state on window refresh. 
   
-  # Thank you!
+  2. By implementing pagination to limit displayed data to fit screen thus improving user interaction with app.
+  
+  ## Thank you!
   
   ## <a href="https://github.com/DhanteyUD">CLINTON OTSE</a>
 

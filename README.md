@@ -1,6 +1,8 @@
 # Data-Filter
 A simple react app that filters data with a specific filter component and also can be searched through with a search box.
 
+`cd data-filter`
+
 Run `npm start` to start app
 
 ## Click on this <a href="https://df-clinton-otse.netlify.app/">Link<a> to demo app

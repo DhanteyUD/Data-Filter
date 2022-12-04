@@ -88,8 +88,3 @@ query {
   1. By persisting state for each filter in order to preserve the state on window refresh. 
   
   2. By implementing pagination to limit displayed data to fit screen viewers height thus improving user interaction with app.
-  
-  ## Thank you!
-  
-  ## <a href="https://github.com/DhanteyUD">CLINTON OTSE</a>
-

@@ -82,9 +82,3 @@ query {
 - [x] Mobile responsive
   
 ![Screen Shot 2022-07-12 at 10 00 26 PM](https://user-images.githubusercontent.com/85023604/178594478-8f3e3ead-e174-41a0-b34a-71b47d332bf5.png)
-
-## How can this App can be Improved?
-  
-  1. By persisting state for each filter in order to preserve the state on window refresh. 
-  
-  2. By implementing pagination to limit displayed data to fit screen viewers height thus improving user interaction with app.

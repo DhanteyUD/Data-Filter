@@ -7,7 +7,7 @@ A simple react app that filters data with a specific filter component and also c
 
 3. Run `npm start` to start app
 
-## Click on this <a href="https://df-clinton-otse.netlify.app/">Link<a> to demo app
+## Click on this <a href="https://df-clinton-otse.netlify.app/">Link<a> to view demo app
 
 ### 1. React Hooks used:
 - [x] useState
